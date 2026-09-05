@@ -785,9 +785,12 @@ body.game-complete .game-completion-banner {
   font-size: clamp(2.7rem, 4vw, 4rem);
 }
 
+/* .container caps at 1180px, so four columns would always be ~283px wide -
+   too narrow for this much text, and it made the cards absurdly tall. A 2x2
+   still shows all four nodes at once, with room to read them. */
 .archive-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
 }
 
@@ -1453,6 +1456,11 @@ body {
 }
 
 /* Interactive Payoff Box */
+.archive-card .interactive-payoff-box,
+.archive-card .cta-box {
+  flex: 1 1 auto;
+}
+
 .interactive-payoff-box {
   margin-top: 1.2rem;
   padding: 1rem;
@@ -1470,7 +1478,8 @@ body {
 /* Tab Selectors */
 .payoff-pills,
 .project-selector-tabs,
-.role-selector-tabs {
+.role-selector-tabs,
+.focus-selector-tabs {
   display: flex;
   gap: 0.5rem;
   margin-bottom: 1rem;
@@ -1479,7 +1488,8 @@ body {
 
 .payoff-pill,
 .proj-tab,
-.role-tab {
+.role-tab,
+.focus-tab {
   appearance: none;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -1495,7 +1505,8 @@ body {
 
 .archive-card:not(.active-card) .payoff-pill,
 .archive-card:not(.active-card) .proj-tab,
-.archive-card:not(.active-card) .role-tab {
+.archive-card:not(.active-card) .role-tab,
+.archive-card:not(.active-card) .focus-tab {
   background: rgba(0, 0, 0, 0.05);
   border-color: rgba(0, 0, 0, 0.15);
   color: var(--ink);
@@ -1504,9 +1515,11 @@ body {
 .payoff-pill.active,
 .proj-tab.active,
 .role-tab.active,
+.focus-tab.active,
 .archive-card:not(.active-card) .payoff-pill.active,
 .archive-card:not(.active-card) .proj-tab.active,
-.archive-card:not(.active-card) .role-tab.active {
+.archive-card:not(.active-card) .role-tab.active,
+.archive-card:not(.active-card) .focus-tab.active {
   background: var(--ink);
   color: var(--paper);
   border-color: var(--ink);
@@ -1515,7 +1528,8 @@ body {
 
 .active-card .payoff-pill.active,
 .active-card .proj-tab.active,
-.active-card .role-tab.active {
+.active-card .role-tab.active,
+.active-card .focus-tab.active {
   background: #f7f3ee;
   color: var(--ink);
   border-color: #f7f3ee;
@@ -1523,13 +1537,15 @@ body {
 
 /* Project & Role Tab Details */
 .project-details,
-.role-details {
+.role-details,
+.focus-details {
   display: none;
   animation: fadeIn 0.25s ease-in-out;
 }
 
 .project-details.active,
-.role-details.active {
+.role-details.active,
+.focus-details.active {
   display: block;
 }
 

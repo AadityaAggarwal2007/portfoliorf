@@ -259,35 +259,26 @@ summaryPills.forEach((pill) => {
   });
 });
 
-// 2. Project Selector Tabs
-const projTabs = document.querySelectorAll('.proj-tab');
-const projDetails = document.querySelectorAll('.project-details');
-projTabs.forEach((tab) => {
-  tab.addEventListener('click', () => {
-    projTabs.forEach((t) => t.classList.remove('active'));
-    projDetails.forEach((d) => d.classList.remove('active'));
-    
-    tab.classList.add('active');
-    const targetId = tab.dataset.proj;
-    const targetDetail = document.getElementById(targetId);
-    if (targetDetail) targetDetail.classList.add('active');
-  });
-});
+// 2. Tab groups inside the archive cards (projects, roles, focus areas)
+function wireTabGroup(tabSelector, panelSelector, datasetKey) {
+  const tabs = document.querySelectorAll(tabSelector);
+  const panels = document.querySelectorAll(panelSelector);
 
-// 3. Role Selector Tabs
-const roleTabs = document.querySelectorAll('.role-tab');
-const roleDetails = document.querySelectorAll('.role-details');
-roleTabs.forEach((tab) => {
-  tab.addEventListener('click', () => {
-    roleTabs.forEach((t) => t.classList.remove('active'));
-    roleDetails.forEach((d) => d.classList.remove('active'));
-    
-    tab.classList.add('active');
-    const targetId = tab.dataset.role;
-    const targetDetail = document.getElementById(targetId);
-    if (targetDetail) targetDetail.classList.add('active');
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      tabs.forEach((t) => t.classList.remove('active'));
+      panels.forEach((p) => p.classList.remove('active'));
+
+      tab.classList.add('active');
+      const targetPanel = document.getElementById(tab.dataset[datasetKey]);
+      if (targetPanel) targetPanel.classList.add('active');
+    });
   });
-});
+}
+
+wireTabGroup('.proj-tab', '.project-details', 'proj');
+wireTabGroup('.role-tab', '.role-details', 'role');
+wireTabGroup('.focus-tab', '.focus-details', 'focus');
 
 // Mobile D-Pad Controls
 dpadButtons.forEach((btn) => {
