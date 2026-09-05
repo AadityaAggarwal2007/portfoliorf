@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Aaditya Aggarwal portfolio — design systems, product thinking, and front-end engineering."
+    />
+    <title>NISHIKA | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cormorant+Garamond:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="container masthead">
+          <div class="brand-block">
+            <span class="brand-mark">N</span>
+            <span class="brand-text">Nishika</span>
+          </div>
+
+          <nav class="nav" aria-label="Main navigation">
+            <a href="#summary">Summary</a>
+            <a href="#work">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+          </nav>
+
+          <span class="year-tag">SQL • Power BI • Python • Data Analytics</span>
+        </div>
+      </header>
+
+      <main class="game-layout">
+        <section class="mission-shell container">
+          <aside class="hud-panel quest-console" aria-live="polite">
+            <div class="hud-header">
+              <div class="brand-block">
+                <span class="brand-mark">N</span>
+                <span class="brand-text">Nishika</span>
+              </div>
+              <span class="status-pill">Mission active</span>
+            </div>
+
+            <div class="mission-summary">
+              <p class="mission-tag">Mission briefing</p>
+              <h1 id="mission-title">Turn data into action.</h1>
+              <p id="mission-copy">
+                Translate business questions, stakeholder needs, and user behavior into dashboards, stories, and decisions that move teams forward.
+              </p>
+            </div>
+
+            <div class="quest-selector" aria-label="Available quest paths">
+              <button class="quest-node active" data-section="summary" data-title="Turn data into action." data-copy="Translate business questions, stakeholder needs, and user behavior into dashboards, stories, and decisions that move teams forward." type="button">Summary</button>
+              <button class="quest-node" data-section="work" data-title="Project run" data-copy="Follow the evidence trail through customer behavior, forecasting, and performance analysis work." type="button">Projects</button>
+              <button class="quest-node" data-section="experience" data-title="Experience map" data-copy="Trace the path from problem discovery to insight delivery across analytical and business-facing projects." type="button">Experience</button>
+              <button class="quest-node" data-section="contact" data-title="Final objective" data-copy="Connect with the profile and open the next opportunity for collaboration and growth." type="button">Contact</button>
+            </div>
+
+            <div class="xp-wrap">
+              <div class="xp-info">
+                <span>Progress</span>
+                <strong id="xp-progress">0%</strong>
+              </div>
+              <div class="xp-bar"><span id="xp-bar-fill"></span></div>
+            </div>
+          </aside>
+
+          <div class="play-area">
+            <div class="play-header">
+              <div>
+                <p class="mission-tag light">Play mode</p>
+                <h2>Data Quest: unlock the profile</h2>
+              </div>
+              <button id="start-game" type="button">New run</button>
+            </div>
+
+            <div id="game-board" class="game-board" aria-label="Game board" tabindex="0">
+              <div class="board-surface"></div>
+              <div class="quest-token token-summary" data-token="summary" data-section="summary" data-name="Summary" style="--x: 1; --y: 1;">SUM</div>
+              <div class="quest-token token-projects" data-token="projects" data-section="work" data-name="Projects" style="--x: 6; --y: 1;">PRJ</div>
+              <div class="quest-token token-experience" data-token="experience" data-section="experience" data-name="Experience" style="--x: 8; --y: 4;">EXP</div>
+              <div class="quest-token token-contact" data-token="contact" data-section="contact" data-name="Contact" style="--x: 2; --y: 6;">CTC</div>
+              <div id="player" class="player">N</div>
+            </div>
+
+            <div class="game-footer">
+              <p id="game-status">Objective: collect all 4 mission hubs (4 left)</p>
+              <p id="game-message">Use arrow keys or WASD to move through the map and unlock every mission node.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="mission-archive container">
+          <div class="archive-header">
+            <p class="mission-tag">Mission archive</p>
+            <h2>Questbook</h2>
+          </div>
+
+          <div class="archive-grid">
+            <article id="summary" class="archive-card active-card">
+              <span class="card-rank">01</span>
+              <p class="card-label">Profile summary</p>
+              <h3>From questions to clarity.</h3>
+              <p>
+                Data-focused problem solver translating stakeholder needs, product questions, and operational friction into clearer insight, stronger reporting, and better decisions.
+              </p>
+            </article>
+
+            <article id="work" class="archive-card">
+              <span class="card-rank">02</span>
+              <p class="card-label">Project logs</p>
+              <h3>Behavior, forecasting, and business outcomes.</h3>
+              <p>
+                Customer behavior analysis, forecasting work, and reporting initiatives focused on real business impact and clearer decision-making.
+              </p>
+            </article>
+
+            <article id="experience" class="archive-card">
+              <span class="card-rank">03</span>
+              <p class="card-label">Experience trail</p>
+              <h3>Problem solving in motion.</h3>
+              <p>
+                Experience centered on requirement mapping, campaign dashboarding, drop-off analysis, and turning fragmented data into action-ready insight.
+              </p>
+            </article>
+
+            <article id="contact" class="archive-card">
+              <span class="card-rank">04</span>
+              <p class="card-label">Final objective</p>
+              <h3>Open for the next challenge.</h3>
+              <p>
+                Ready to work on business-facing data problems, reporting systems, and strategy-supporting analysis with a practical and user-first mindset.
+              </p>
+              <a class="button primary" href="mailto:nishikaaggarwal84@gmail.com">Contact</a>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer id="contact" class="site-footer">
+        <div class="container footer-shell">
+          <div>
+            <div class="section-kicker light">Let’s work</div>
+            <h2>Build something thoughtful.</h2>
+          </div>
+          <div class="contact-links">
+            <a href="https://linkedin.com/in/nishika-aggarwal-8151612a1" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://wa.me/918595893323" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a href="mailto:nishikaaggarwal84@gmail.com">nishikaaggarwal84@gmail.com</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
