@@ -37,6 +37,35 @@ function isWall(x, y) {
   return walls.some((wall) => wall.x === x && wall.y === y);
 }
 
+// The barriers block movement, so draw them instead of leaving them invisible.
+function renderWalls() {
+  if (!board || board.querySelector('.wall')) return;
+  walls.forEach((wall) => {
+    const el = document.createElement('div');
+    el.className = 'wall';
+    el.setAttribute('aria-hidden', 'true');
+    el.style.setProperty('--x', wall.x);
+    el.style.setProperty('--y', wall.y);
+    board.appendChild(el);
+  });
+}
+
+// Tokens and the player are placed on a --cell grid step. On narrow screens a
+// fixed 40px step pushes the right-hand columns (EXP sits at x=8) outside the
+// board, so scale the step down to whatever keeps all 9 columns visible.
+function syncCellSize() {
+  if (!board) return;
+  const width = board.clientWidth;
+  const height = board.clientHeight;
+  if (!width || !height) return;
+  // A token is 1.3 cells wide and sits 0.25 of a cell into its column, so the
+  // last column needs (boardWidth - 1) + 1.55 cells of room, not boardWidth.
+  const spanX = boardWidth + 0.55;
+  const spanY = boardHeight + 0.55;
+  const cell = Math.min(40, width / spanX, height / spanY);
+  board.style.setProperty('--cell', `${cell}px`);
+}
+
 function updatePlayerPosition() {
   const player = document.getElementById('player');
   if (!player) return;
@@ -49,17 +78,17 @@ function setQuestMission(title, copy) {
   if (missionCopy) missionCopy.textContent = copy;
 }
 
-function activateArchiveCard(sectionId) {
+function activateArchiveCard(sectionId, { scroll = false } = {}) {
   archiveCards.forEach((card) => {
     const isActive = card.id === sectionId;
     card.classList.toggle('active-card', isActive);
-    if (isActive) {
+    if (isActive && scroll) {
       card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   });
 }
 
-function updateProgress() {
+function updateProgress({ keepMessage = false } = {}) {
   const remaining = tokens.length - state.collected.size;
   const percent = Math.round((state.collected.size / tokens.length) * 100);
   const isComplete = remaining === 0;
@@ -96,7 +125,7 @@ function updateProgress() {
     if (completionBanner) completionBanner.classList.remove('show');
   }
 
-  if (gameMessage) {
+  if (gameMessage && !keepMessage) {
     gameMessage.textContent = 'Use arrow keys, WASD, or the touch D-Pad below to move through the map.';
   }
 }
@@ -112,6 +141,8 @@ function triggerConfetti() {
 }
 
 function pickupToken() {
+  let unlocked = false;
+
   tokens.forEach((token) => {
     const tokenType = token.dataset.token;
     if (state.collected.has(tokenType)) return;
@@ -121,6 +152,7 @@ function pickupToken() {
 
     if (state.x === x && state.y === y) {
       state.collected.add(tokenType);
+      unlocked = true;
       
       // Live animation trigger
       token.classList.add('just-collected');
@@ -148,7 +180,7 @@ function pickupToken() {
     }
   });
 
-  updateProgress();
+  updateProgress({ keepMessage: unlocked });
 }
 
 function movePlayer(dx, dy) {
@@ -186,6 +218,7 @@ function resetGame() {
   if (completionBanner) completionBanner.classList.remove('show');
   questNodes.forEach((node) => node.classList.toggle('active', node.dataset.section === 'summary'));
   activateArchiveCard('summary');
+  syncCellSize();
   setQuestMission(
     'Turn data into action.',
     'Computer Science Engineering graduate (2026 batch, DIT University) with hands-on experience in data analysis, SQL, Power BI, and Python.'
@@ -200,7 +233,7 @@ questNodes.forEach((button) => {
   button.addEventListener('click', () => {
     questNodes.forEach((node) => node.classList.remove('active'));
     button.classList.add('active');
-    activateArchiveCard(button.dataset.section || 'summary');
+    activateArchiveCard(button.dataset.section || 'summary', { scroll: true });
     setQuestMission(
       button.dataset.title || 'Turn data into action.',
       button.dataset.copy || 'Translate business questions into data-driven decisions.'
@@ -288,6 +321,7 @@ document.addEventListener('keydown', (event) => {
 });
 
 // Initialize on Load
-updatePlayerPosition();
-updateProgress();
+renderWalls();
+syncCellSize();
+window.addEventListener('resize', syncCellSize);
 resetGame();
