@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Aaditya Aggarwal portfolio — design systems, product thinking, and front-end engineering."
+      content="Nishika Aggarwal portfolio — data analysis, SQL, Power BI, and business intelligence."
     />
     <title>NISHIKA | Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,13 +22,14 @@
         <div class="container masthead">
           <div class="brand-block">
             <span class="brand-mark">N</span>
-            <span class="brand-text">Nishika</span>
+            <span class="brand-text">Nishika Aggarwal</span>
           </div>
 
           <nav class="nav" aria-label="Main navigation">
             <a href="#summary">Summary</a>
             <a href="#work">Projects</a>
             <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
             <a href="#contact">Contact</a>
           </nav>
 
@@ -37,6 +38,7 @@
       </header>
 
       <main class="game-layout">
+        <!-- MISSION & GAME SHELL -->
         <section class="mission-shell container">
           <aside class="hud-panel quest-console" aria-live="polite">
             <div class="hud-header">
@@ -44,22 +46,22 @@
                 <span class="brand-mark">N</span>
                 <span class="brand-text">Nishika</span>
               </div>
-              <span class="status-pill">Mission active</span>
+              <span id="mission-status-pill" class="status-pill">Mission active</span>
             </div>
 
             <div class="mission-summary">
               <p class="mission-tag">Mission briefing</p>
               <h1 id="mission-title">Turn data into action.</h1>
               <p id="mission-copy">
-                Translate business questions, stakeholder needs, and user behavior into dashboards, stories, and decisions that move teams forward.
+                Computer Science Engineering graduate (2026 batch, DIT University) with hands-on experience in data analysis, SQL, Power BI, and Python.
               </p>
             </div>
 
             <div class="quest-selector" aria-label="Available quest paths">
-              <button class="quest-node active" data-section="summary" data-title="Turn data into action." data-copy="Translate business questions, stakeholder needs, and user behavior into dashboards, stories, and decisions that move teams forward." type="button">Summary</button>
-              <button class="quest-node" data-section="work" data-title="Project run" data-copy="Follow the evidence trail through customer behavior, forecasting, and performance analysis work." type="button">Projects</button>
-              <button class="quest-node" data-section="experience" data-title="Experience map" data-copy="Trace the path from problem discovery to insight delivery across analytical and business-facing projects." type="button">Experience</button>
-              <button class="quest-node" data-section="contact" data-title="Final objective" data-copy="Connect with the profile and open the next opportunity for collaboration and growth." type="button">Contact</button>
+              <button class="quest-node active" data-section="summary" data-title="Turn data into action." data-copy="Computer Science Engineering graduate (2026 batch, DIT University, CGPA 8.3/10) with hands-on experience in data analysis, SQL, Power BI, and Python." type="button">Summary (SUM)</button>
+              <button class="quest-node" data-section="work" data-title="Project run" data-copy="Follow the evidence trail through Customer Shopping Behavior Analysis and MediSchedule AI Load Prediction." type="button">Projects (PRJ)</button>
+              <button class="quest-node" data-section="experience" data-title="Experience map" data-copy="Trace the path from 80% drop-off diagnosis at Jewelmond Precious to campus placement data coordination at DIT." type="button">Experience (EXP)</button>
+              <button class="quest-node" data-section="contact" data-title="Final objective" data-copy="Connect with Nishika Aggarwal for business analytics, BI reporting systems, and data-driven roles. Immediate joiner." type="button">Contact (CTC)</button>
             </div>
 
             <div class="xp-wrap">
@@ -90,63 +92,247 @@
             </div>
 
             <div class="game-footer">
-              <p id="game-status">Objective: collect all 4 mission hubs (4 left)</p>
-              <p id="game-message">Use arrow keys or WASD to move through the map and unlock every mission node.</p>
+              <div class="game-status-bar">
+                <p id="game-status">Objective: collect all 4 mission hubs (4 left)</p>
+                <p id="game-message">Use arrow keys, WASD, or the touch D-Pad below to move through the map.</p>
+              </div>
+
+              <!-- Mobile / Touch Controls -->
+              <div class="dpad-controls" aria-label="Movement Controls">
+                <button class="dpad-btn dpad-up" data-dir="up" aria-label="Move Up">▲</button>
+                <div class="dpad-middle">
+                  <button class="dpad-btn dpad-left" data-dir="left" aria-label="Move Left">◀</button>
+                  <button class="dpad-btn dpad-down" data-dir="down" aria-label="Move Down">▼</button>
+                  <button class="dpad-btn dpad-right" data-dir="right" aria-label="Move Right">▶</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Completion Banner -->
+            <div id="completion-banner" class="game-completion-banner">
+              <div class="banner-content">
+                <span class="banner-badge">★ MISSION ACCOMPLISHED</span>
+                <h3>Profile Fully Unlocked!</h3>
+                <p>All 4 mission hubs collected. Nishika Aggarwal is available for immediate hire.</p>
+                <div class="banner-actions">
+                  <a href="mailto:nishikaaggarwal84@gmail.com" class="button primary small">Send Email</a>
+                  <button id="banner-replay-btn" class="button secondary small" type="button">Play Again</button>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
+        <!-- MISSION ARCHIVE / QUESTBOOK -->
         <section class="mission-archive container">
           <div class="archive-header">
-            <p class="mission-tag">Mission archive</p>
-            <h2>Questbook</h2>
+            <div>
+              <p class="mission-tag">Mission archive</p>
+              <h2>Questbook</h2>
+            </div>
+            <p class="archive-subtitle">Interactive logs & real-time profile exploration</p>
           </div>
 
           <div class="archive-grid">
+            <!-- SUMMARY CARD (SUM) -->
             <article id="summary" class="archive-card active-card">
-              <span class="card-rank">01</span>
+              <div class="card-header-row">
+                <span class="card-rank">01</span>
+                <span class="unlock-badge">SUM NODE</span>
+              </div>
               <p class="card-label">Profile summary</p>
               <h3>From questions to clarity.</h3>
-              <p>
-                Data-focused problem solver translating stakeholder needs, product questions, and operational friction into clearer insight, stronger reporting, and better decisions.
+              <p class="card-desc">
+                Computer Science Engineering graduate (2026 batch, DIT University, Dehradun, CGPA 8.3/10) with hands-on experience in data analysis, SQL, Power BI, and Python.
               </p>
+              
+              <div class="interactive-payoff-box">
+                <div class="payoff-pills">
+                  <span class="payoff-pill active" data-tab="summary-core">Core Profile</span>
+                  <span class="payoff-pill" data-tab="summary-highlights">Key Highlights</span>
+                </div>
+                <div class="payoff-content" id="summary-tab-content">
+                  <p>Diagnosed an 80% drop-off rate through root-cause and gap analysis in an analyst role at Jewelmond Precious Pvt. Ltd., driving a 40%+ improvement in the target metric. Comfortable working across data-heavy, cross-functional environments, using AI tools (ChatGPT, GitHub Copilot, Claude) daily to accelerate analysis and automate reporting workflows. <strong>Immediate joiner.</strong></p>
+                </div>
+              </div>
             </article>
 
+            <!-- PROJECT LOGS CARD (PRJ) -->
             <article id="work" class="archive-card">
-              <span class="card-rank">02</span>
+              <div class="card-header-row">
+                <span class="card-rank">02</span>
+                <span class="unlock-badge">PRJ NODE</span>
+              </div>
               <p class="card-label">Project logs</p>
-              <h3>Behavior, forecasting, and business outcomes.</h3>
-              <p>
-                Customer behavior analysis, forecasting work, and reporting initiatives focused on real business impact and clearer decision-making.
-              </p>
+              <h3>Behavior, forecasting & business outcomes.</h3>
+              
+              <!-- Interactive Project Switcher -->
+              <div class="interactive-payoff-box">
+                <div class="project-selector-tabs">
+                  <button type="button" class="proj-tab active" data-proj="proj-1">01. Customer Shopping</button>
+                  <button type="button" class="proj-tab" data-proj="proj-2">02. MediSchedule AI</button>
+                </div>
+
+                <div id="proj-1" class="project-details active">
+                  <h4>Customer Shopping Behaviour Analysis</h4>
+                  <ul class="bullet-list">
+                    <li>Cleaned and validated a 3,900-row retail dataset in Python (pandas) — median imputation, feature engineering, data-quality checks — loaded into PostgreSQL as a validated single source of truth.</li>
+                    <li>Ran 10 SQL business queries on revenue drivers and customer segmentation.</li>
+                    <li>Built an interactive Power BI KPI dashboard on top of the cleaned data.</li>
+                  </ul>
+                  <div class="tech-tags">
+                    <span>Python (Pandas)</span><span>PostgreSQL</span><span>SQL</span><span>Power BI</span>
+                  </div>
+                </div>
+
+                <div id="proj-2" class="project-details">
+                  <h4>MediSchedule — AI Hospital Appointment & Queue Prediction <small>(B.Tech Capstone)</small></h4>
+                  <ul class="bullet-list">
+                    <li>Benchmarked Random Forest, Logistic Regression, and XGBoost models to predict hospital load fluctuations for capacity planning.</li>
+                    <li>Authored a technical report and stakeholder presentation translating model outputs into operational recommendations.</li>
+                  </ul>
+                  <div class="tech-tags">
+                    <span>Scikit-learn</span><span>Random Forest</span><span>XGBoost</span><span>Predictive Modeling</span>
+                  </div>
+                </div>
+              </div>
             </article>
 
+            <!-- EXPERIENCE TRAIL CARD (EXP) -->
             <article id="experience" class="archive-card">
-              <span class="card-rank">03</span>
+              <div class="card-header-row">
+                <span class="card-rank">03</span>
+                <span class="unlock-badge">EXP NODE</span>
+              </div>
               <p class="card-label">Experience trail</p>
               <h3>Problem solving in motion.</h3>
-              <p>
-                Experience centered on requirement mapping, campaign dashboarding, drop-off analysis, and turning fragmented data into action-ready insight.
-              </p>
+
+              <!-- Interactive Timeline / Role Switcher -->
+              <div class="interactive-payoff-box">
+                <div class="role-selector-tabs">
+                  <button type="button" class="role-tab active" data-role="role-1">Jewelmond (2026)</button>
+                  <button type="button" class="role-tab" data-role="role-2">CATALYST DIT (2025)</button>
+                </div>
+
+                <div id="role-1" class="role-details active">
+                  <div class="role-meta">
+                    <strong>Associate Business Analyst</strong>
+                    <span>Jewelmond Precious Pvt. Ltd. | New Delhi (Feb 2026 – Jul 2026)</span>
+                  </div>
+                  <ul class="bullet-list">
+                    <li><strong>Root-Cause & Gap Analysis:</strong> Diagnosed an 80% drop-off rate end-to-end using app analytics and SQL; identified friction points (slow processing times, missing incentives) and presented findings to senior management.</li>
+                    <li><strong>Dashboards & Reporting:</strong> Built recurring performance dashboards; analyzed campaign data against a $1.40 cost-per-result benchmark, driving a 40%+ spend reallocation while holding acquisition volume steady.</li>
+                    <li><strong>Data Quality & Recommendations:</strong> Validated data across sources with cross-functional teams; recommended incentive redesign and shipping-policy changes, delivering a 40% improvement in target metric.</li>
+                    <li>Used ChatGPT and GitHub Copilot to speed up analysis cycles and recurring report generation.</li>
+                  </ul>
+                </div>
+
+                <div id="role-2" class="role-details">
+                  <div class="role-meta">
+                    <strong>Student Placement Representative</strong>
+                    <span>CATALYST, DIT University (2025)</span>
+                  </div>
+                  <ul class="bullet-list">
+                    <li>Consolidated multi-source eligibility, application, and offer data into a single tracked record for 200+ students.</li>
+                    <li>Acted as primary data liaison between recruiters and the placement cell during high-volume drive cycles.</li>
+                  </ul>
+                </div>
+              </div>
             </article>
 
+            <!-- FINAL OBJECTIVE CARD (CTC) -->
             <article id="contact" class="archive-card">
-              <span class="card-rank">04</span>
+              <div class="card-header-row">
+                <span class="card-rank">04</span>
+                <span class="unlock-badge">CTC NODE</span>
+              </div>
               <p class="card-label">Final objective</p>
               <h3>Open for the next challenge.</h3>
-              <p>
-                Ready to work on business-facing data problems, reporting systems, and strategy-supporting analysis with a practical and user-first mindset.
+              <p class="card-desc">
+                Ready to work on business-facing data problems, reporting systems, and strategy-supporting analysis with hands-on BI/SQL/Power BI/Python experience from Jewelmond and academic project work.
               </p>
-              <a class="button primary" href="mailto:nishikaaggarwal84@gmail.com">Contact</a>
+              <div class="cta-box">
+                <p class="status-highlight">⚡ Immediate Joiner</p>
+                <div class="contact-btn-group">
+                  <a class="button primary" href="mailto:nishikaaggarwal84@gmail.com">Send Email</a>
+                  <a class="button secondary" href="https://linkedin.com/in/nishika-aggarwal-8151612a1" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                </div>
+              </div>
             </article>
+          </div>
+        </section>
+
+        <!-- SKILLS & EDUCATION PANELS -->
+        <section id="skills" class="skills-edu-section container">
+          <div class="skills-edu-grid">
+            <!-- SKILLS PANEL -->
+            <div class="info-panel skills-panel">
+              <div class="panel-tag">Technical Competencies</div>
+              <h3>Skills & Capabilities</h3>
+
+              <div class="skill-category">
+                <h4>Business Intelligence & Reporting</h4>
+                <p>Dashboard Development, Recurring Reporting, KPI Design, Root-Cause & Gap Analysis, Data Quality & Validation, Hypothesis Testing, Trend & Anomaly Detection</p>
+              </div>
+
+              <div class="skill-category">
+                <h4>Data & Analytics</h4>
+                <p>SQL, Python (Pandas, Scikit-learn), Statistical & Predictive Modeling, Data Mining, Data Cleaning & Transformation</p>
+              </div>
+
+              <div class="skill-category">
+                <h4>Tools & Platforms</h4>
+                <p>Power BI, Advanced Excel, PostgreSQL, JIRA, Agile/Scrum</p>
+              </div>
+
+              <div class="skill-category">
+                <h4>AI & Automation</h4>
+                <p>Prompt Engineering, ChatGPT, GitHub Copilot, Claude, exploring Microsoft Fabric & Azure Machine Learning</p>
+              </div>
+
+              <div class="skill-category">
+                <h4>Documentation & Communication</h4>
+                <p>BRD Writing, Insight Reports, Stakeholder Presentations, Requirements Gathering, Technical Specification Authoring</p>
+              </div>
+            </div>
+
+            <!-- EDUCATION & CERTS PANEL -->
+            <div class="info-panel edu-panel">
+              <div class="panel-tag">Academic Background</div>
+              <h3>Education & Certifications</h3>
+
+              <div class="edu-item">
+                <div class="edu-title-row">
+                  <h4>B.Tech in Computer Science Engineering</h4>
+                  <span class="edu-badge">CGPA 8.3 / 10</span>
+                </div>
+                <p class="edu-inst">DIT University, Dehradun (2022–2026)</p>
+              </div>
+
+              <div class="edu-item">
+                <div class="edu-title-row">
+                  <h4>Schooling</h4>
+                  <span class="edu-badge">Class XII: 95% | Class X: 93.4%</span>
+                </div>
+                <p class="edu-inst">CBSE Board (PCM)</p>
+              </div>
+
+              <div class="edu-item">
+                <h4>Certifications & Languages</h4>
+                <ul class="cert-list">
+                  <li><strong>Oracle Cloud Infrastructure (OCI) Certified</strong></li>
+                  <li>Languages: Native Hindi speaker | Proficient in English (written & spoken)</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </section>
       </main>
 
-      <footer id="contact" class="site-footer">
+      <footer class="site-footer">
         <div class="container footer-shell">
           <div>
-            <div class="section-kicker light">Let’s work</div>
+            <div class="section-kicker light">Let’s connect</div>
             <h2>Build something thoughtful.</h2>
           </div>
           <div class="contact-links">
@@ -158,6 +344,8 @@
       </footer>
     </div>
 
+    <!-- Canvas Confetti Library for Completion Animation -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
