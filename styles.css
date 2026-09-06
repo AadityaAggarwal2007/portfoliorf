@@ -292,16 +292,46 @@ h1 span {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+/* Photo sits beside the briefing tag and headline so the space to its right
+   isn't left empty. Stacks again on narrow screens, where the headline has no
+   room to sit alongside it. */
+.mission-intro {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 0.9rem;
+}
+
+.mission-intro-text {
+  min-width: 0;
+}
+
+/* The console is a narrow column, so the headline needs to come down a step
+   to sit beside the photo without breaking onto three lines. */
+.mission-summary .mission-intro-text h1 {
+  margin-bottom: 0;
+  font-size: clamp(1.9rem, 2.5vw, 2.6rem);
+}
+
 .profile-photo {
   display: block;
-  width: 108px;
-  height: 108px;
+  flex: 0 0 auto;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
   object-fit: cover;
   object-position: center 18%;
   border: 2px solid var(--gold);
   box-shadow: 0 12px 26px rgba(0, 0, 0, 0.35);
-  margin: 0 0 1.1rem;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .mission-intro {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.9rem;
+  }
 }
 
 .mission-tag {
