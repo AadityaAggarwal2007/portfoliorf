@@ -326,11 +326,21 @@ h1 span {
   margin: 0;
 }
 
+/* Keep the photo and headline side by side on phones too - shrink both rather
+   than stacking, so the space beside the portrait is never left empty. */
 @media (max-width: 640px) {
   .mission-intro {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.9rem;
+    gap: 1rem;
+  }
+
+  .profile-photo {
+    width: 78px;
+    height: 78px;
+  }
+
+  .mission-summary .mission-intro-text h1 {
+    font-size: 1.55rem;
+    line-height: 1;
   }
 }
 
